@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>translatedistrict翻译</title>
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script src="translateEn.js"></script>
+    <script>
+        var TranslateDict = [
+            { Key: '你好', Value: 'Hello', Order: "1" },
+            { Key: '玛丽', Value: 'Mary', Order: "1" },
+            { Key: '欢迎来中国', Value: 'Welcom to China', Order: "1" }
+        ]
+        function switchLang(o) {
+            var lang = $(o).val();
+            if (lang == "2") {
+                TranslateEN(TranslateDict);
+            }
+            else {
+                location.reload();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>translatedistrict指定标签范围匹配翻译</div>
+    <hr />
+    <div>
+        <select onchange="switchLang(this)">
+            <option value="1">中文</option>
+            <option value="2">English</option>
+        </select>
+    </div>
+    <ul>
+        <li>翻译区域</li>
+        <li>
+            <div translatedistrict="1">
+                <div>你好，玛丽：</div>
+                <div>欢迎来中国</div>
+            </div>
+        </li>
+        <li>不翻译区域</li>
+        <li>
+            <div>北京欢迎你！</div>
+        </li>
+    </ul>
+
+</body>
+</html>

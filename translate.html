@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>translate翻译</title>
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script src="translateEn.js"></script>
+    <script>
+        var TranslateDict = [
+            { Key: '你好！', Value: 'Hello!', Order: "1" },
+            { Key: '你好！', Value: 'Are You OK!', Order: "2" },
+            { Key: '1天', Value: 'one day', Order: "1" },
+            { Key: '2', Value: 'two', Order: "1" },
+            { Key: '你好,lily', Value: 'Hello,lily', Order: "1" }
+        ]
+        function switchLang(o) {
+            var lang = $(o).val();
+            if (lang == "2") {
+                TranslateEN(TranslateDict);
+            }
+            else {
+                location.reload();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>精确翻译对于标签里的内容使用完全匹配的查找字典的值来翻译，如（”你好！“）。同一个字符可以使用不同的翻译方式。</div>
+    <hr />
+    <div>
+        <select onchange="switchLang(this)">
+            <option value="1">中文</option>
+            <option value="2">English</option>
+        </select>
+    </div>
+    <div translate="1">你好！</div>
+    <div translate="2">你好！</div>
+    <div translate="1">1天</div>
+    <div translate="1">2</div>
+    <div translate="1">你好,lily</div>
+</body>
+</html>

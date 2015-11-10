@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>htmltranslate翻译</title>
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script src="translateEn.js"></script>
+    <script>
+        var TranslateDict = [
+            { Key: '你好玛丽', Value: 'Hello <label style="font-style:oblique">Mary</label>!', Order: "1" }
+        ]
+        function switchLang(o) {
+            var lang = $(o).val();
+            if (lang == "2") {
+                TranslateEN(TranslateDict);
+            }
+            else {
+                location.reload();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>htmltranslate翻译</div>
+    <hr />
+    <div>
+        <select onchange="switchLang(this)">
+            <option value="1">中文</option>
+            <option value="2">English</option>
+        </select>
+    </div>
+    <div htmltranslate="1">你好<label style="font-style:oblique">玛丽</label></div>
+</body>
+</html>
